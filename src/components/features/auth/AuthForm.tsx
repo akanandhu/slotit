@@ -15,6 +15,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { DefaultValues, Path, useForm } from "react-hook-form";
 import { z } from "zod";
+import { axiosInstance } from "@/lib/axiosInstance";
 
 type AuthType = "signIn" | "signUp";
 
@@ -56,12 +57,17 @@ export const AuthForm = <T extends AuthType>({ type }: { type: T }) => {
   });
 
   function onSubmit(data: SchemaType<T>) {
-    console.log(data, "Form Submitted");
+    axiosInstance.post("auth/login", data).then((res) => {
+      console.log(res, "responseCheck");
+    });
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full mt-6 space-y-4">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-full mt-6 space-y-4"
+      >
         {isSignUp && (
           <>
             <FormField
@@ -140,7 +146,10 @@ export const AuthForm = <T extends AuthType>({ type }: { type: T }) => {
         {!isSignUp && (
           <h6 className="text-gray-500 text-xs text-right mt-30">
             Having issues?{" "}
-            <Link className="text-primary font-semibold " href={"/reset-password"}>
+            <Link
+              className="text-primary font-semibold "
+              href={"/reset-password"}
+            >
               Reset Password
             </Link>
           </h6>
