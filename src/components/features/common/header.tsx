@@ -15,12 +15,12 @@ export const Header = () => {
       <SidebarTrigger />
       <DropdownMenu>
         <DropdownMenuTrigger className="flex items-center gap-2 p-2 cursor-pointer rounded-md hover:bg-accent transition">
-          <Avatar className="w-8 h-8">
+          <Avatar className="w-9 h-9">
             <AvatarImage src="/avatar.png" alt="User Profile" />
             <AvatarFallback>JD</AvatarFallback>
           </Avatar>
           <div className="flex flex-col text-left">
-            <span className="text-sm font-medium">Jay Hargudson</span>
+            <span className="text-sm font-medium text-[#1D1F2C]">Jay Hargudson</span>
             <span className="text-xs font-medium text-gray-500">Manager</span>
           </div>
         </DropdownMenuTrigger>

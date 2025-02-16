@@ -60,7 +60,7 @@ export const AuthForm = <T extends AuthType>({ type }: { type: T }) => {
 
   function onSubmit(data: SchemaType<T>) {
     console.log(data, "responseCheck");
-    router.push('/home')
+    router.push('/dashboard')
     // axiosInstance.post("auth/login", data).then((res) => {
     // });
   }

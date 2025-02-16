@@ -26,7 +26,7 @@ export default async function RootLayout({
         </Suspense>
         <div className="flex flex-col w-full">
           <Header />
-          {children}
+          <div className="p-6 bg-gray-50 h-full">{children}</div>
         </div>
       </SidebarProvider>
     </main>
