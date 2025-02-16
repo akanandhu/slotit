@@ -13,9 +13,9 @@ import { Input } from "@/components/ui/input";
 import { PasswordInput } from "@/components/ui/password-input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { DefaultValues, Path, useForm } from "react-hook-form";
 import { z } from "zod";
-import { axiosInstance } from "@/lib/axiosInstance";
 
 type AuthType = "signIn" | "signUp";
 
@@ -55,11 +55,14 @@ export const AuthForm = <T extends AuthType>({ type }: { type: T }) => {
       ? { firstName: "", lastName: "", email: "", phone: "", password: "" }
       : { email: "", password: "" }) as DefaultValues<SchemaType<T>>,
   });
+  
+  const router = useRouter();
 
   function onSubmit(data: SchemaType<T>) {
-    axiosInstance.post("auth/login", data).then((res) => {
-      console.log(res, "responseCheck");
-    });
+    console.log(data, "responseCheck");
+    router.push('/home')
+    // axiosInstance.post("auth/login", data).then((res) => {
+    // });
   }
 
   return (
