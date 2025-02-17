@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Stats } from "./StatsCards";
+import { Stats } from "./stats-cards";
 
 export const StatsCard = ({ stat }: { stat: Stats }) => {
   return (

@@ -1,4 +1,4 @@
-import { StatsCard } from "./StatsCard";
+import { StatsCard } from "./stats-card";
 
 export interface Stats {
   label: string;

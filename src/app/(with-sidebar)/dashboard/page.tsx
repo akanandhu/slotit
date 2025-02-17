@@ -1,4 +1,5 @@
-import { StatsCards } from "@/components/features/analytics/StatsCards";
+import { StatsCards } from "@/components/features/analytics/stats-cards";
+import { SchedulesCard } from "@/components/features/booking/schedules-card";
 import { Button } from "@/components/ui/button";
 import { DateRangePicker } from "@/components/ui/date-range-picker";
 import { stats } from "@/data/stats";
@@ -21,6 +22,7 @@ const HomePage = () => {
         </div>
       </div>
         <StatsCards stats={stats} />
+        <SchedulesCard />
     </div>
   );
 };
