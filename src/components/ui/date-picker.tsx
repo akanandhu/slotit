@@ -35,7 +35,7 @@ export function DatePickerWithPresets() {
           )}
         >
           <CalendarDays />
-          {date ? format(date, "PPP") : <span>Select Dates</span>}
+          {date ? format(date, "PPP") : <span>Select Date</span>}
         </Button>
       </PopoverTrigger>
       <PopoverContent className="flex w-auto flex-col space-y-2 p-2">

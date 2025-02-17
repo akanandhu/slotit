@@ -1,4 +1,5 @@
 import { StatsCards } from "@/components/features/analytics/stats-cards";
+import { AppointmentsCard } from "@/components/features/booking/appointments-card";
 import { SchedulesCard } from "@/components/features/booking/schedules-card";
 import { Button } from "@/components/ui/button";
 import { DateRangePicker } from "@/components/ui/date-range-picker";
@@ -21,8 +22,9 @@ const HomePage = () => {
           </Button>
         </div>
       </div>
-        <StatsCards stats={stats} />
-        <SchedulesCard />
+      <StatsCards stats={stats} />
+      <SchedulesCard />
+      <AppointmentsCard />
     </div>
   );
 };

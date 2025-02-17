@@ -1,3 +1,4 @@
+'use client'
 import {
   Hotel,
   ChartColumnBig,
@@ -24,6 +25,7 @@ import {
 } from "@/components/ui/sidebar";
 import Image from "next/image";
 import BrandLogo from "~/svg/logos/BrandLogo.svg";
+import { usePathname } from "next/navigation";
 
 // Menu items.
 const menus = [
@@ -32,12 +34,12 @@ const menus = [
     items: [
       {
         title: "Dashboard",
-        url: "#",
+        url: "/dashboard",
         icon: LayoutDashboard,
       },
       {
         title: "Analytics",
-        url: "#",
+        url: "/analytics",
         icon: ChartColumnBig,
       },
       {
@@ -80,6 +82,7 @@ const menus = [
 ];
 
 export function AppSidebar() {
+  const pathname = usePathname();
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="items-center mt-2">
@@ -95,7 +98,7 @@ export function AppSidebar() {
                   return (
                     <SidebarMenu key={option.title}>
                       <SidebarMenuItem>
-                        <SidebarMenuButton asChild>
+                        <SidebarMenuButton asChild isActive={option.url.includes(pathname)}>
                           <a
                             className="flex gap-4 items-center"
                             href={option.url}
