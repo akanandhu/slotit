@@ -16,11 +16,11 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarSeparator,
 } from "@/components/ui/sidebar";
 import Image from "next/image";
 import BrandLogo from "~/svg/logos/BrandLogo.svg";
@@ -87,9 +87,9 @@ export function AppSidebar() {
       </SidebarHeader>
       <SidebarContent className="justify-between">
         <div>
-          {menus.map((menu) => (
+          {menus.map((menu, index) => (
             <SidebarGroup key={menu.label}>
-              <SidebarGroupLabel>{menu.label}</SidebarGroupLabel>
+              {index !== 0 && <SidebarSeparator className="my-2" />}
               <SidebarGroupContent className="flex flex-col gap-2">
                 {menu.items.map((option) => {
                   return (

@@ -1,10 +1,15 @@
 "use client";
 import { Card, CardTitle } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 import dynamic from "next/dynamic";
 
 const SchedulerChart = dynamic(() => import("@/components/ui/scheduler"), {
   ssr: false,
-  loading: () => <p>Loading</p>,
+  loading: () => (
+    <>
+      <Skeleton className="h-72 w-full" />
+    </>
+  ),
 });
 
 export const SchedulesCard = () => {
