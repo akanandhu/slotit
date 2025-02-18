@@ -8,7 +8,7 @@ import { CalendarPlus2 } from "lucide-react";
 
 const HomePage = () => {
   return (
-    <div className="  space-y-6">
+    <div className="space-y-6">
       <div className="flex flex-col gap-4 md:gap-0 md:flex-row justify-between">
         <div>
           <h3 className="font-medium text-2xl text-[#0F1016]">Welcome Jay</h3>

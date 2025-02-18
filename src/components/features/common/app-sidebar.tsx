@@ -26,6 +26,7 @@ import {
 import Image from "next/image";
 import BrandLogo from "~/svg/logos/BrandLogo.svg";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 // Menu items.
 const menus = [
@@ -44,7 +45,7 @@ const menus = [
       },
       {
         title: "Booking",
-        url: "#",
+        url: "/booking",
         icon: ShoppingBag,
       },
       {
@@ -99,13 +100,13 @@ export function AppSidebar() {
                     <SidebarMenu key={option.title}>
                       <SidebarMenuItem>
                         <SidebarMenuButton asChild isActive={option.url.includes(pathname)}>
-                          <a
+                          <Link
                             className="flex gap-4 items-center"
                             href={option.url}
                           >
                             <option.icon />
                             <span>{option.title}</span>
-                          </a>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                     </SidebarMenu>
