@@ -45,7 +45,7 @@ const menus = [
       },
       {
         title: "Booking",
-        url: "/booking",
+        url: "/bookings",
         icon: ShoppingBag,
       },
       {
@@ -54,8 +54,8 @@ const menus = [
         icon: Hotel,
       },
       {
-        title: "Serives",
-        url: "#",
+        title: "Services",
+        url: "/services",
         icon: SquareChartGantt,
       },
       {
