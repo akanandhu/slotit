@@ -116,16 +116,7 @@ export function AppSidebar() {
                           <Link
                             className="flex gap-4 items-center"
                             href={option.url}
-                            onClick={() => {
-                              if (window.innerWidth < 768) {
-                                const trigger = document.querySelector(
-                                  '[data-trigger="sidebar"]'
-                                );
-                                if (trigger instanceof HTMLElement) {
-                                  trigger.click();
-                                }
-                              }
-                            }}
+                            onClick={handleClick}
                           >
                             <option.icon />
                             <span>{option.title}</span>
@@ -142,7 +133,7 @@ export function AppSidebar() {
         <SidebarFooter>
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton asChild>
+              <SidebarMenuButton asChild onClick={handleClick}>
                 <a href="/login" className="flex gap-4 items-center">
                   <LogOut />
                   <span>Logout</span>
