@@ -60,7 +60,7 @@ export const ServiceForm = () => {
   });
 
   return (
-    <div className="mt-6 grid grid-cols-[3fr_1fr] gap-6">
+    <div className="mt-6 grid grid-rows-1 lg:grid-cols-[2fr_1fr]  xl:grid-cols-[3fr_1fr] gap-6">
       <Card className="p-6">
         <h2 className="font-semibold text-lg mb-3">General Information</h2>
         <Form {...form}>

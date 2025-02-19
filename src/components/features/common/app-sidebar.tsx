@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import {
   Hotel,
   ChartColumnBig,
@@ -87,7 +87,9 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="items-center mt-2">
-        <Image src={BrandLogo} alt="Logo" width={186} className="w-2/3" />
+        <Link className="flex justify-center w-full" href={"/dashboard"}>
+          <Image src={BrandLogo} alt="Logo" width={186} className="w-2/3" />
+        </Link>
       </SidebarHeader>
       <SidebarContent className="justify-between">
         <div>
@@ -99,7 +101,10 @@ export function AppSidebar() {
                   return (
                     <SidebarMenu key={option.title}>
                       <SidebarMenuItem>
-                        <SidebarMenuButton asChild isActive={option.url.includes(pathname)}>
+                        <SidebarMenuButton
+                          asChild
+                          isActive={pathname.includes(option.url)}
+                        >
                           <Link
                             className="flex gap-4 items-center"
                             href={option.url}
