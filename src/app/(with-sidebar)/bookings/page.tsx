@@ -2,6 +2,7 @@ import { BookingsTable } from "@/components/features/booking/bookings-table";
 import { Button } from "@/components/ui/button";
 import { PageHead } from "@/components/ui/page-head";
 import { CalendarPlus2 } from "lucide-react";
+import Link from "next/link";
 
 const BookingPage = () => {
   return (
@@ -9,10 +10,12 @@ const BookingPage = () => {
       <PageHead
         title="Booking History"
         ButtonComponent={
-          <Button rounded={"md"}>
-            <CalendarPlus2 />
-            Add Appointment
-          </Button>
+          <Link href={'/bookings/add'}>
+            <Button rounded={"md"}>
+              <CalendarPlus2 />
+              Add Appointment
+            </Button>
+          </Link>
         }
         breadcrumbs={[
           { href: "/dashboard", label: "Dashboard" },

@@ -2,8 +2,9 @@ import { RoomCards } from "@/components/features/room/room-cards";
 import { Button } from "@/components/ui/button";
 import { PageHead } from "@/components/ui/page-head";
 import { Plus } from "lucide-react";
+import Link from "next/link";
 
-const breadcrumbs = [
+export const breadcrumbs = [
   {
     label: "Dashboard",
     href: "/dashboard",
@@ -14,21 +15,22 @@ const breadcrumbs = [
   },
 ];
 
-const RoomsPage = () => {
+export default function RoomPage() {
   return (
     <div className="space-y-6">
       <PageHead
         breadcrumbs={breadcrumbs}
         title="Shop Rooms"
         ButtonComponent={
-          <Button rounded={"md"}>
-            <Plus />
-            Add Room
-          </Button>
+          <Link href={"/room/add"}>
+            <Button rounded={"md"}>
+              <Plus />
+              Add Room
+            </Button>
+          </Link>
         }
       />
       <RoomCards />
     </div>
   );
-};
-export default RoomsPage;
+}
