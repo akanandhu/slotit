@@ -14,7 +14,7 @@ export const Header = () => {
   const router = useRouter();
   return (
     <header className="sticky top-0 z-50 bg-white h-16 border border-solid border-l-0 px-6 py-3 flex items-center justify-between">
-      <SidebarTrigger />
+      <SidebarTrigger data-trigger='sidebar' />
       <DropdownMenu>
         <DropdownMenuTrigger className="flex items-center gap-2 p-2 cursor-pointer rounded-md hover:bg-accent transition">
           <Avatar className="w-9 h-9">

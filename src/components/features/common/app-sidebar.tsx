@@ -84,6 +84,14 @@ const menus = [
 
 export function AppSidebar() {
   const pathname = usePathname();
+  function handleClick() {
+    if (window.innerWidth < 768) {
+      const trigger = document.querySelector('[data-trigger="sidebar"]');
+      if (trigger instanceof HTMLElement) {
+        trigger.click();
+      }
+    }
+  }
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="items-center mt-2">
@@ -108,6 +116,16 @@ export function AppSidebar() {
                           <Link
                             className="flex gap-4 items-center"
                             href={option.url}
+                            onClick={() => {
+                              if (window.innerWidth < 768) {
+                                const trigger = document.querySelector(
+                                  '[data-trigger="sidebar"]'
+                                );
+                                if (trigger instanceof HTMLElement) {
+                                  trigger.click();
+                                }
+                              }
+                            }}
                           >
                             <option.icon />
                             <span>{option.title}</span>
