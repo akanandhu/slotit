@@ -84,7 +84,7 @@ export const columns: ColumnDef<RoomData>[] = [
       }).format(amount);
 
       return (
-        <div className="w-40 flex items-center gap-4">
+        <div className="w-40 flex flex-col md:flex-row items-center gap-4">
           <Progress value={progress} />
           <div className="text-sm font-medium mt-1">{formatted}</div>
         </div>
