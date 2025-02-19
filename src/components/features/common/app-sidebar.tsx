@@ -60,7 +60,7 @@ const menus = [
       },
       {
         title: "Staff",
-        url: "#",
+        url: "/staff",
         icon: UsersRound,
       },
     ],
