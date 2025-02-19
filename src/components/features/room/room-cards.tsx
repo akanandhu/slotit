@@ -1,4 +1,4 @@
-import { RoomCard } from "./room-card";
+import RoomCard from "./room-card";
 
 export const RoomCards = () => {
   return (
