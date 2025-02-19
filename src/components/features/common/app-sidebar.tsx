@@ -50,7 +50,7 @@ const menus = [
       },
       {
         title: "Room",
-        url: "#",
+        url: "/room",
         icon: Hotel,
       },
       {
