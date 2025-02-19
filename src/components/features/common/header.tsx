@@ -8,8 +8,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { useRouter } from "next/navigation";
 
 export const Header = () => {
+  const router = useRouter();
   return (
     <header className="sticky top-0 z-50 bg-white h-16 border border-solid border-l-0 px-6 py-3 flex items-center justify-between">
       <SidebarTrigger />
@@ -20,7 +22,9 @@ export const Header = () => {
             <AvatarFallback>JD</AvatarFallback>
           </Avatar>
           <div className="flex flex-col text-left">
-            <span className="text-sm font-medium text-[#1D1F2C]">Jay Hargudson</span>
+            <span className="text-sm font-medium text-[#1D1F2C]">
+              Jay Hargudson
+            </span>
             <span className="text-xs font-medium text-gray-500">Manager</span>
           </div>
         </DropdownMenuTrigger>
@@ -29,7 +33,7 @@ export const Header = () => {
           <DropdownMenuItem>Settings</DropdownMenuItem>
           <DropdownMenuItem
             className="text-red-500"
-            onClick={() => console.log("Logout")}
+            onClick={() => router.push("/login")}
           >
             Logout
           </DropdownMenuItem>
