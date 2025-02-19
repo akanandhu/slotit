@@ -1,6 +1,6 @@
 import { PageHead } from "@/components/ui/page-head";
-import { breadcrumbs } from "../page";
 import { StaffForm } from "@/components/features/staff/staff-form";
+import { breadcrumbs } from "@/data/breadcrumbs/staff";
 
 const StaffCreatePage = () => {
   return (

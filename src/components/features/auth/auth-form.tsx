@@ -14,7 +14,7 @@ import { PasswordInput } from "@/components/ui/password-input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { DefaultValues, Path, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 type AuthType = "signIn" | "signUp";
@@ -42,27 +42,34 @@ const SignUpSchema = z.object({
     .min(6, { message: "Password must be at least 6 characters." }),
 });
 
-type SchemaType<T extends AuthType> = T extends "signUp"
-  ? z.infer<typeof SignUpSchema>
-  : z.infer<typeof SignInSchema>;
+type SignInType = z.infer<typeof SignInSchema>;
+type SignUpType = z.infer<typeof SignUpSchema>;
 
-export const AuthForm = <T extends AuthType>({ type }: { type: T }) => {
+export const AuthForm = ({ type }: { type: AuthType }) => {
   const isSignUp = type === "signUp";
-
-  const form = useForm<SchemaType<T>>({
-    resolver: zodResolver(isSignUp ? SignUpSchema : SignInSchema),
-    defaultValues: (isSignUp
-      ? { firstName: "", lastName: "", email: "", phone: "", password: "" }
-      : { email: "", password: "" }) as DefaultValues<SchemaType<T>>,
+  const schema = isSignUp ? SignUpSchema : SignInSchema;
+  
+  const form = useForm({
+    resolver: zodResolver(schema),
+    defaultValues: isSignUp
+      ? {
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          password: "",
+        }
+      : {
+          email: "",
+          password: "",
+        },
   });
   
   const router = useRouter();
 
-  function onSubmit(data: SchemaType<T>) {
+  function onSubmit(data: SignUpType | SignInType) {
     console.log(data, "responseCheck");
-    router.push('/dashboard')
-    // axiosInstance.post("auth/login", data).then((res) => {
-    // });
+    router.push('/');
   }
 
   return (
@@ -75,7 +82,7 @@ export const AuthForm = <T extends AuthType>({ type }: { type: T }) => {
           <>
             <FormField
               control={form.control}
-              name={"firstName" as Path<SchemaType<T>>}
+              name="firstName"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>First Name</FormLabel>
@@ -88,7 +95,7 @@ export const AuthForm = <T extends AuthType>({ type }: { type: T }) => {
             />
             <FormField
               control={form.control}
-              name={"lastName" as Path<SchemaType<T>>}
+              name="lastName"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Last Name</FormLabel>
@@ -103,7 +110,7 @@ export const AuthForm = <T extends AuthType>({ type }: { type: T }) => {
         )}
         <FormField
           control={form.control}
-          name={"email" as Path<SchemaType<T>>}
+          name="email"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Email</FormLabel>
@@ -117,7 +124,7 @@ export const AuthForm = <T extends AuthType>({ type }: { type: T }) => {
         {isSignUp && (
           <FormField
             control={form.control}
-            name={"phone" as Path<SchemaType<T>>}
+            name="phone"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Phone</FormLabel>
@@ -135,7 +142,7 @@ export const AuthForm = <T extends AuthType>({ type }: { type: T }) => {
         )}
         <FormField
           control={form.control}
-          name={"password" as Path<SchemaType<T>>}
+          name="password"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Password</FormLabel>
@@ -150,14 +157,14 @@ export const AuthForm = <T extends AuthType>({ type }: { type: T }) => {
           <h6 className="text-gray-500 text-xs text-right mt-30">
             Having issues?{" "}
             <Link
-              className="text-primary font-semibold "
-              href={"/reset-password"}
+              className="text-primary font-semibold"
+              href="/reset-password"
             >
               Reset Password
             </Link>
           </h6>
         )}
-        <Button className="w-full" rounded={"full"} type="submit">
+        <Button className="w-full" rounded="full" type="submit">
           {isSignUp ? "Sign Up" : "Sign In"}
         </Button>
       </form>

@@ -1,19 +1,9 @@
 import { RoomCards } from "@/components/features/room/room-cards";
 import { Button } from "@/components/ui/button";
 import { PageHead } from "@/components/ui/page-head";
+import { breadcrumbs } from "@/data/breadcrumbs/room";
 import { Plus } from "lucide-react";
 import Link from "next/link";
-
-export const breadcrumbs = [
-  {
-    label: "Dashboard",
-    href: "/dashboard",
-  },
-  {
-    label: "Room",
-    href: "/room",
-  },
-];
 
 export default function RoomPage() {
   return (

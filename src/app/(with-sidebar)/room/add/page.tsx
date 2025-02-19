@@ -1,6 +1,6 @@
 import { PageHead } from "@/components/ui/page-head";
-import { breadcrumbs } from "../page";
 import { RoomForm } from "@/components/features/room/room-form";
+import { breadcrumbs } from "@/data/breadcrumbs/room";
 
 const RoomCreatePage = () => {
   return (
