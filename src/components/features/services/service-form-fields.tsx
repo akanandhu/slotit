@@ -62,8 +62,8 @@ export const ServiceFormFields = <T extends FieldValues>({
           control={control}
           name={"room" as Path<T>}
           options={rooms}
-          label="Choose Room"
-          placeholder="Select Room"
+          label="Choose Specialist"
+          placeholder="Select Specialist"
         />
       </div>
       <Button rounded={"md"} type="submit">

@@ -6,7 +6,7 @@ export const breadcrumbs:BreadcrumbItem[] = [
       href: "/dashboard",
     },
     {
-      label: "Room",
-      href: "/room",
+      label: "Specialist",
+      href: "/specialist",
     },
   ];

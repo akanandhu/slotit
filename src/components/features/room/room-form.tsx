@@ -37,8 +37,8 @@ export const RoomForm = () => {
             <TextField
               control={form.control}
               name="name"
-              label="Room Name"
-              placeholder="Enter Room Name here"
+              label="Specialist Name"
+              placeholder="Enter Specialist Name here"
             />
 
             <TextAreaField control={form.control} name="description" label="Description" placeholder="Enter Description here"  />

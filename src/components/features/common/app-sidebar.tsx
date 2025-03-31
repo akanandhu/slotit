@@ -49,8 +49,8 @@ const menus = [
         icon: ShoppingBag,
       },
       {
-        title: "Room",
-        url: "/room",
+        title: "Specialist",
+        url: "/specialist",
         icon: Hotel,
       },
       {

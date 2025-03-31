@@ -10,12 +10,12 @@ export default function RoomPage() {
     <div className="space-y-6">
       <PageHead
         breadcrumbs={breadcrumbs}
-        title="Shop Rooms"
+        title="Shop Specialist"
         ButtonComponent={
-          <Link href={"/room/add"}>
+          <Link href={"/specialist/add"}>
             <Button rounded={"md"}>
               <Plus />
-              Add Room
+              Add Specialist
             </Button>
           </Link>
         }

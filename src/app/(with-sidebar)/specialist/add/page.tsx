@@ -5,7 +5,7 @@ import { breadcrumbs } from "@/data/breadcrumbs/room";
 const RoomCreatePage = () => {
   return (
     <div className="space-y-2">
-      <PageHead title="Create Shop Room" breadcrumbs={breadcrumbs}></PageHead>
+      <PageHead title="Create Shop Specialist" breadcrumbs={breadcrumbs}></PageHead>
       <RoomForm />
     </div>
   );

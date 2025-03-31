@@ -10,7 +10,7 @@ const RoomCard = () => {
       <CardFooter className="flex justify-between items-center pt-4 pb-10">
         <div>
           <h3 className="font-semibold text-lg lg:text-xl leading-5">
-            Room Name
+            Specialist Name
           </h3>
           <h6 className="text-[#667085]">Description</h6>
         </div>
