@@ -21,17 +21,24 @@ const TabsList = React.forwardRef<
 ));
 TabsList.displayName = TabsPrimitive.List.displayName;
 
+interface TabsTriggerProps
+  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> {
+  variant?: "default" | "pill";
+}
+
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
->(({ className, ...props }, ref) => (
+  TabsTriggerProps
+>(({ className, variant = "pill", ...props }, ref) => (
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex-1 flex items-center justify-center px-5 py-2 text-sm font-medium transition-all rounded-full",
+      "flex-1 flex items-center justify-center px-5 py-2 text-sm font-medium transition-all",
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
       "disabled:pointer-events-none disabled:opacity-50",
-      "data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow",
+      variant === "pill"
+        ? "rounded-full data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow"
+        : "rounded-none",
       className
     )}
     {...props}

@@ -1,6 +1,5 @@
 import { Control, FieldValues, Path } from "react-hook-form";
 import { TextField } from "../common/inputs/text-form-field";
-import { Button } from "@/components/ui/button";
 
 interface Props<T extends FieldValues> {
   control: Control<T>;
@@ -30,9 +29,7 @@ export const BookingCustomerForm = <T extends FieldValues>({
         label="Phone"
         placeholder="Type Phone number here"
       />
-      <div>
-        <Button className="rounded-md" type="submit">Submit</Button>
-      </div>
+      
     </div>
   );
 };

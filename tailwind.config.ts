@@ -31,7 +31,8 @@ export default {
   			},
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
+  				foreground: 'hsl(var(--secondary-foreground))',
+				
   			},
   			muted: {
   				DEFAULT: 'hsl(var(--muted))',
@@ -64,7 +65,8 @@ export default {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
-  			}
+  			},
+			grayLabel: "#868686",
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

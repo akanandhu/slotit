@@ -1,10 +1,10 @@
 "use client";
-import { Card } from "@/components/ui/card";
 import { Form } from "@/components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import z from "zod";
 import { BookingFormFields } from "./booking-form-fields";
+import { Card } from "@/components/ui/card";
 import { BookingTimeSelection } from "./booking-time-selection";
 import { BookingCustomerForm } from "./booking-customer-form";
 
@@ -40,34 +40,21 @@ export const BookingForm = () => {
   }
   return (
     <div className="mt-6 grid grid-rows-1 gap-6">
-      <Card className="p-6">
-        <h2 className="font-semibold text-lg mb-3">General Information</h2>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <BookingFormFields control={form.control} />
-          </form>
-        </Form>
-      </Card>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <BookingFormFields control={form.control} />
+          <Card className="p-6">
+            <h2 className="font-semibold text-lg mb-3">Choose Date and Time</h2>
 
-      <Card className="p-6">
-        <h2 className="font-semibold text-lg mb-3">Choose Date and Time</h2>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <BookingTimeSelection />
+            <BookingTimeSelection />
+          </Card>
+          <Card className="p-6">
+            <h2 className="font-semibold text-lg mb-3">Booking Details</h2>
 
-          </form>
-        </Form>
-      </Card>
-
-
-      <Card className="p-6">
-        <h2 className="font-semibold text-lg mb-3">Booking Details</h2>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <BookingCustomerForm  control={form.control} />              
-          </form>
-        </Form>
-      </Card>
+            <BookingCustomerForm control={form.control} />
+          </Card>
+        </form>
+      </Form>
     </div>
   );
 };
